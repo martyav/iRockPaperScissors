@@ -39,12 +39,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pickerButtons(_ sender: UISegmentedControl) {
-//        var itemPlayer: Weaponry
-//        var itemComp: Weaponry
 
-        let itemPlayer = Weaponry(rawValue: pickerButton.selectedSegmentIndex)
+        var itemPlayer = Weaponry(rawValue: pickerButton.selectedSegmentIndex)
         // cast this into a weapon and feed it to the weapon function
         let playerEmoji = weaponEmoji(itemPlayer!)
+        
         playmoji.text = playerEmoji
         // This turns it sideways
         playmoji.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
