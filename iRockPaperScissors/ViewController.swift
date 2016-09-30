@@ -10,7 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var pickerButton: UISegmentedControl!
     @IBOutlet weak var darkMode: UISwitch!
+    @IBOutlet weak var playmoji: UILabel!
     
     var rounds = 0
     var wins = 0
@@ -20,9 +22,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // These need to load up here b/c if they're up top the compiler complains
         
-        var itemPlayer: Weaponry
-        var itemComp: Weaponry
     }
+    
+    // MARK - Action
     
     // This is defined in reverse because it makes more sense for dark mode to be implemented by shutting the switch off
     @IBAction func darkMode(_ sender: UISwitch) {
@@ -34,6 +36,19 @@ class ViewController: UIViewController {
             view.tintColor = .black
             view.backgroundColor = .white
         }
+    }
+    
+    @IBAction func pickerButtons(_ sender: UISegmentedControl) {
+//        var itemPlayer: Weaponry
+//        var itemComp: Weaponry
+
+        let itemPlayer = Weaponry(rawValue: pickerButton.selectedSegmentIndex)
+        // cast this into a weapon and feed it to the weapon function
+        let playerEmoji = weaponEmoji(itemPlayer!)
+        playmoji.text = playerEmoji
+        // This turns it sideways
+        playmoji.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+        rounds += 1
     }
 
 }
