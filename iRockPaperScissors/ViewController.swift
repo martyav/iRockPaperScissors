@@ -9,7 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var itemPlayer: Weaponry
+    var itemComp: Weaponry
+    
+    var rounds = 0
+    var wins = 0
+    var losses = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
