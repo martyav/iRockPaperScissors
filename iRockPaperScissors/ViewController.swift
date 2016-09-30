@@ -9,8 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var itemPlayer: Weaponry
-    var itemComp: Weaponry
+    
+    @IBOutlet weak var darkMode: UISwitch!
     
     var rounds = 0
     var wins = 0
@@ -18,14 +18,23 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // These need to load up here b/c if they're up top the compiler complains
+        
+        var itemPlayer: Weaponry
+        var itemComp: Weaponry
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // This is defined in reverse because it makes more sense for dark mode to be implemented by shutting the switch off
+    @IBAction func darkMode(_ sender: UISwitch) {
+        if darkMode.isOn != true {
+            // We also need to set the backfound for the section & the switch
+            view.backgroundColor = .black
+            view.tintColor = .white
+        } else {
+            view.tintColor = .black
+            view.backgroundColor = .white
+        }
     }
-
 
 }
 
