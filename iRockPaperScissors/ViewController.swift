@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var pickerButton: UISegmentedControl!
     @IBOutlet weak var darkMode: UISwitch!
     @IBOutlet weak var playmoji: UILabel!
+    @IBOutlet weak var compoji: UILabel!
+    @IBOutlet weak var results: UILabel!
     
     var rounds = 0
     var wins = 0
@@ -38,17 +40,44 @@ class ViewController: UIViewController {
         }
     }
     
+    func compPick() -> Weaponry {
+        let randomChoice = Int(arc4random_uniform(2))
+        let itemComp = Weaponry(rawValue: randomChoice)
+        let compEmoji = weaponEmoji(itemComp!)
+        
+        compoji.text = compEmoji
+        compoji.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
+        
+        return itemComp!
+    }
+    
     @IBAction func pickerButtons(_ sender: UISegmentedControl) {
 
-        var itemPlayer = Weaponry(rawValue: pickerButton.selectedSegmentIndex)
+        let playerPlaysThat = Weaponry(rawValue: pickerButton.selectedSegmentIndex)
         // cast this into a weapon and feed it to the weapon function
-        let playerEmoji = weaponEmoji(itemPlayer!)
+        let playerEmoji = weaponEmoji(playerPlaysThat!)
         
         playmoji.text = playerEmoji
         // This turns it sideways
         playmoji.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+        
+        let compPlaysThis = compPick()
+        
+        // logic for comparing player and computer weapons
+        
+        if compPlaysThis == playerPlaysThat {
+            results.text = msg(.tie)
+        } else if compPlaysThis == Weaponry.scissors && playerPlaysThat == Weaponry.rock
+            || compPlaysThis == Weaponry.paper && playerPlaysThat == Weaponry.scissors
+            || compPlaysThis == Weaponry.rock && playerPlaysThat == Weaponry.paper {
+            results.text = msg(.win)
+            wins += 1
+        } else {
+            results.text = msg(.lose)
+            losses += 1
+        }
+        
         rounds += 1
     }
-
 }
 
