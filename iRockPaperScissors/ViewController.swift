@@ -22,8 +22,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // These need to load up here b/c if they're up top the compiler complains
-        
     }
     
     // MARK - Action
@@ -31,7 +29,7 @@ class ViewController: UIViewController {
     // This is defined in reverse because it makes more sense for dark mode to be implemented by shutting the switch off
     @IBAction func darkMode(_ sender: UISwitch) {
         if darkMode.isOn != true {
-            // We also need to set the backfound for the section & the switch
+            // We also need to set the background for the section & the switch -- as-is we have ugly corners
             view.backgroundColor = .black
             view.tintColor = .white
         } else {
@@ -63,7 +61,8 @@ class ViewController: UIViewController {
         
         let compPlaysThis = compPick()
         
-        // logic for comparing player and computer weapons
+        // Logic for comparing player and computer weapons
+        // This could be refactored into a switch
         
         if compPlaysThis == playerPlaysThat {
             results.text = msg(.tie)
