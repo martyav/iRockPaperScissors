@@ -31,9 +31,11 @@ class ViewController: UIViewController {
         if darkMode.isOn != true {
             // We also need to set the background for the section & the switch -- as-is we have ugly corners
             view.backgroundColor = .black
+            results.textColor = .white
             view.tintColor = .white
         } else {
             view.tintColor = .black
+            results.textColor = .black
             view.backgroundColor = .white
         }
     }
