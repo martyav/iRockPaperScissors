@@ -8,19 +8,23 @@
 
 import Foundation
 
-enum Weaponry: Int {
-    case rock = 0
-    case paper = 1
-    case scissors = 2
-}
+enum Weapon: Int {
+    case rock
+    case paper
+    case scissors
+    
+    static func convertInt(toWeapon: Int) -> Weapon {
+        return Weapon(rawValue: toWeapon)!
+    }
 
-func weaponEmoji(_ weapon: Weaponry) -> String {
-    switch weapon {
-    case .rock:
-        return "\u{270A}"
-    case .paper:
-        return "\u{270B}"
-    case .scissors:
-        return "\u{270C}"
+    static func convertWeapon(toEmoji: Weapon) -> String {
+        switch toEmoji {
+        case .rock:
+            return "\u{270A}"
+        case .paper:
+            return "\u{270B}"
+        case .scissors:
+            return "\u{270C}"
+        }
     }
 }

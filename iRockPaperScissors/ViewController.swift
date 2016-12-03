@@ -20,14 +20,30 @@ class ViewController: UIViewController {
     var wins = 0
     var losses = 0
     
+    var playerPlaysThis: (weapon: Weapon, emoji: String)?
+    var compPlaysThat: (weapon: Weapon, emoji: String)?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        if playerPlaysThis != nil {
+        // This displays the player's pick
+            playmoji.text = playerPlaysThis?.emoji
+            print(playerPlaysThis?.emoji)
+        // This turns it sideways
+            playmoji.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+        } else {
+            playmoji.text = ""
+        }
+        
+        compoji.text = compPlaysThat?.emoji
+        print(compPlaysThat?.emoji)
+        compoji.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
     }
     
-    // MARK - Action
+    // MARK: - Actions
     
-    // This is defined in reverse because it makes more sense for dark mode to be implemented by shutting the switch off
     @IBAction func darkMode(_ sender: UISwitch) {
+        // This is defined in reverse because it makes more sense for dark mode to be implemented by shutting the switch off
         if darkMode.isOn != true {
             // We also need to set the background for the section & the switch -- as-is we have ugly corners
             view.backgroundColor = .black
@@ -40,45 +56,28 @@ class ViewController: UIViewController {
         }
     }
     
-    func compPick() -> Weaponry {
-        let randomChoice = Int(arc4random_uniform(2))
-        let itemComp = Weaponry(rawValue: randomChoice)
-        let compEmoji = weaponEmoji(itemComp!)
-        
-        compoji.text = compEmoji
-        compoji.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
-        
-        return itemComp!
-    }
-    
     @IBAction func pickerButtons(_ sender: UISegmentedControl) {
-
-        let playerPlaysThat = Weaponry(rawValue: pickerButton.selectedSegmentIndex)
-        // cast this into a weapon and feed it to the weapon function
-        let playerEmoji = weaponEmoji(playerPlaysThat!)
-        
-        playmoji.text = playerEmoji
-        // This turns it sideways
-        playmoji.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
-        
-        let compPlaysThis = compPick()
+        playerPlaysThis = chosenByPlayer(pickerButton.selectedSegmentIndex) as (weapon: Weapon, emoji: String)
+        compPlaysThat = chooseForComputer() as (weapon: Weapon, emoji: String)
         
         // Logic for comparing player and computer weapons
         // This could be refactored into a switch
         
-        if compPlaysThis == playerPlaysThat {
-            results.text = msg(.tie)
-        } else if compPlaysThis == Weaponry.scissors && playerPlaysThat == Weaponry.rock
-            || compPlaysThis == Weaponry.paper && playerPlaysThat == Weaponry.scissors
-            || compPlaysThis == Weaponry.rock && playerPlaysThat == Weaponry.paper {
-            results.text = msg(.win)
+        let compsWeapon = compPlaysThat?.weapon
+        let playersWeapon = playerPlaysThis?.weapon
+        
+        if compsWeapon == playersWeapon {
+            results.text = Msg.display(text: .tie)
+        } else if compsWeapon == Weapon.scissors && playersWeapon == Weapon.rock
+            || compsWeapon == Weapon.paper && playersWeapon == Weapon.scissors
+            || compsWeapon == Weapon.rock && playersWeapon == Weapon.paper {
+            results.text = Msg.display(text: .win)
             wins += 1
         } else {
-            results.text = msg(.lose)
+            results.text = Msg.display(text: .lose)
             losses += 1
         }
         
         rounds += 1
     }
 }
-
