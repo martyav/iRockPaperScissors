@@ -12,7 +12,6 @@ enum Msg {
     case win
     case lose
     case tie
-    case error
     case troll
 
     static func display(text: Msg) -> String {
@@ -23,8 +22,6 @@ enum Msg {
             return "You lose!"
         case .tie:
             return "Jinx!"
-        case .error:
-            return "Error!"
         case .troll:
             let randomTroll = Int(arc4random_uniform(5))
             switch randomTroll {
