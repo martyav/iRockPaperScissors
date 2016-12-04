@@ -17,10 +17,10 @@ enum Msg {
     case lose
     case tie
     case error
-}
 
-func msg(_ which: Msg) -> String {
-    switch which {
+
+    static func display(text: Msg) -> String {
+        switch text {
         case .hi:
             return "Welcome to...ROCK PAPER SCISSORS!\nAre you ready to ROCK?"
         case .bye:
@@ -37,5 +37,6 @@ func msg(_ which: Msg) -> String {
             return "Jinx!"
         case .error:
             return "Error!"
+        }
     }
 }
