@@ -28,9 +28,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // increase font size on picker
         let font = UIFont.systemFont(ofSize: 30)
         pickerButton.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+        
         // turn emojis sideways
         playmoji.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
         compoji.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
@@ -64,7 +66,7 @@ class ViewController: UIViewController {
             // This displays the player's pick
             playmoji.text = playerPlaysThis!.emoji
             print(playerPlaysThis!.emoji)
-            } else {
+        } else {
             playmoji.text = "👋"
         }
         
@@ -80,5 +82,21 @@ class ViewController: UIViewController {
         currentRound.text = String(rounds)
         playerWins.text = String(wins)
         playerLosses.text = String(losses)
+    }
+    
+    
+    
+    
+    @IBAction func reset(_ sender: UIButton) {
+        rounds = 0
+        wins = 0
+        losses = 0
+        
+        currentRound.text = String(rounds)
+        playerWins.text = String(wins)
+        playerLosses.text = String(losses)
+        results.text = ""
+        playmoji.text = "👋"
+        compoji.text = "👋"
     }
 }

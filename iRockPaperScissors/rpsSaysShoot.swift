@@ -22,5 +22,3 @@ func chooseForComputer() -> (weapon: Weapon, emoji: String) {
     
     return (computersPick, computersPickEmoji)
 }
-
-func trackWinsLosses() {}
