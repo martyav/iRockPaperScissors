@@ -81,4 +81,12 @@ class ViewController: UIViewController {
         playerWins.text = String(wins)
         playerLosses.text = String(losses)
     }
+    
+    
+    @IBAction func reset(_ sender: UIButton) {
+        currentRound.text = String(0)
+        playerWins.text = String(0)
+        playerLosses.text = String(0)
+        results.text = ""
+    }
 }
