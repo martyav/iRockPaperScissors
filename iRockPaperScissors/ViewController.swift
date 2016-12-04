@@ -96,7 +96,7 @@ class ViewController: UIViewController {
             }
         }
         
-        self.results.text = determineWinners(player1: playersWeapon!, player2: compsWeapon!)
+        self.results.text = determineWinners(player1: playersWeapon!, player2: compsWeapon!, troll: trolling)
         
         if playerPlaysThis != nil {
             playmoji.text = playerPlaysThis!.emoji
@@ -115,7 +115,7 @@ class ViewController: UIViewController {
         rounds += 1
         if results.text == Msg.display(text: .win) {
             wins += 1
-        } else if results.text == Msg.display(text: .lose) {
+        } else if results.text == Msg.display(text: .lose)  || results.text == Msg.display(text: .troll) {
             losses += 1
         }
         

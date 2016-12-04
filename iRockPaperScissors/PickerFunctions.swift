@@ -23,23 +23,31 @@ func chooseForComputer() -> (weapon: Weapon, emoji: String) {
     return (computersPick, computersPickEmoji)
 }
 
-func determineWinners(player1: Weapon, player2: Weapon) -> String {
+func determineWinners(player1: Weapon, player2: Weapon, troll: Bool) -> String {
     switch player1 {
     case Weapon.rock:
         switch player2 {
         case Weapon.scissors:
             return Msg.display(text: .win)
         case Weapon.paper:
-            return Msg.display(text: .lose)
+            if troll == true {
+                return Msg.display(text: .troll)
+            } else {
+                return Msg.display(text: .lose)
+            }
         default:
             return Msg.display(text: .tie)
         }
     case Weapon.paper:
         switch player2 {
-            case Weapon.scissors:
+            case Weapon.rock:
             return Msg.display(text: .win)
-        case Weapon.rock:
-            return Msg.display(text: .lose)
+        case Weapon.scissors:
+            if troll == true {
+                return Msg.display(text: .troll)
+            } else {
+                return Msg.display(text: .lose)
+            }
         default:
             return Msg.display(text: .tie)
         }
@@ -48,7 +56,11 @@ func determineWinners(player1: Weapon, player2: Weapon) -> String {
         case Weapon.paper:
             return Msg.display(text: .win)
         case Weapon.rock:
-            return Msg.display(text: .lose)
+            if troll == true {
+                return Msg.display(text: .troll)
+            } else {
+                return Msg.display(text: .lose)
+            }
         default:
             return Msg.display(text: .tie)
         }
