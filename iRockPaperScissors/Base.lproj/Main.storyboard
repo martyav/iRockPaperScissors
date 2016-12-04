@@ -143,11 +143,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YRX-zB-nJ1">
                                 <rect key="frame" x="310" y="616" width="49" height="46"/>
                                 <subviews>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HQR-Ps-Kta">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HQR-Ps-Kta">
                                         <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
                                         <color key="tintColor" red="0.99215686270000003" green="0.74901960779999999" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="onTintColor" red="0.98821759220000005" green="0.90110361579999998" blue="0.68691003319999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="trollMode:" destination="PjR-pq-qSN" eventType="valueChanged" id="PWQ-j0-WN6"/>
+                                        </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Troll mode" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFV-Ap-Sym">
                                         <rect key="frame" x="0.0" y="31" width="49" height="15"/>
@@ -238,6 +241,7 @@
                         <outlet property="playerWins" destination="RtD-xG-5Bh" id="hhy-yw-c7E"/>
                         <outlet property="playmoji" destination="UyY-FO-9ne" id="qh9-79-71S"/>
                         <outlet property="results" destination="FO2-Hs-fxe" id="ln1-Rv-pgh"/>
+                        <outlet property="trollMode" destination="HQR-Ps-Kta" id="lN4-OE-ExA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edI-Ey-AnU" userLabel="First Responder" sceneMemberID="firstResponder"/>

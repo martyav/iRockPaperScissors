@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var pickerButton: UISegmentedControl!
+    @IBOutlet weak var trollMode: UISwitch!
     @IBOutlet weak var playmoji: UILabel!
     @IBOutlet weak var compoji: UILabel!
     @IBOutlet weak var results: UILabel!
@@ -25,6 +26,8 @@ class ViewController: UIViewController {
     
     var playerPlaysThis: (weapon: Weapon, emoji: String)?
     var compPlaysThat: (weapon: Weapon, emoji: String)?
+    
+    var trolling = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +45,51 @@ class ViewController: UIViewController {
     
     @IBAction func pickerButtons(_ sender: UISegmentedControl) {
         playerPlaysThis = chosenByPlayer(pickerButton.selectedSegmentIndex) as (weapon: Weapon, emoji: String)
-        compPlaysThat = chooseForComputer() as (weapon: Weapon, emoji: String)
+        var playersWeapon: Weapon? = Weapon.rock
+        var compsWeapon: Weapon? = Weapon.scissors
         
-        // Logic for comparing player and computer weapons
-        // This could be refactored into a switch
+        // Basic mode
         
-        let compsWeapon = compPlaysThat?.weapon
-        let playersWeapon = playerPlaysThis?.weapon
+        if trolling == false {
+            compPlaysThat = chooseForComputer() as (weapon: Weapon, emoji: String)
+        
+            compsWeapon = compPlaysThat?.weapon
+            playersWeapon = playerPlaysThis?.weapon
+        }
+            
+        // Troll mode
+        
+        else {
+            let randomlyFrustrate = Int(arc4random_uniform(10))
+            playersWeapon = playerPlaysThis?.weapon
+            
+            switch randomlyFrustrate {
+                
+            // 60% of the time, make the player lose
+            case 5, 4, 3, 2, 1, 0:
+                switch playersWeapon! as Weapon {
+                case Weapon.rock:
+                    compPlaysThat = (weapon: Weapon.paper, emoji: Weapon.convertWeapon(toEmoji: Weapon.paper))
+                    compsWeapon = compPlaysThat?.weapon
+                case Weapon.paper:
+                    compPlaysThat = (weapon: Weapon.scissors, emoji: Weapon.convertWeapon(toEmoji: Weapon.scissors))
+                case Weapon.scissors:
+                    compPlaysThat = (weapon: Weapon.rock, emoji: Weapon.convertWeapon(toEmoji: Weapon.rock))
+                }
+                
+            // 30% of the time, make the player tie
+            case 8, 7, 6:
+                compPlaysThat = playerPlaysThis! as (weapon: Weapon, emoji: String)
+                compsWeapon = compPlaysThat?.weapon
+                
+            // 10% of the time, or whenever something weird happens, give the player a chance of winning. Actual chance is 30% of 10%, or 3%
+            default:
+                compPlaysThat = chooseForComputer() as (weapon: Weapon, emoji: String)
+                compsWeapon = compPlaysThat?.weapon
+            }
+        }
+        
+        // Determining winners & display stuff
         
         if compsWeapon == playersWeapon {
             self.results.text = Msg.display(text: .tie)
@@ -84,9 +125,6 @@ class ViewController: UIViewController {
         playerLosses.text = String(losses)
     }
     
-    
-    
-    
     @IBAction func reset(_ sender: UIButton) {
         rounds = 0
         wins = 0
@@ -99,4 +137,11 @@ class ViewController: UIViewController {
         playmoji.text = "👋"
         compoji.text = "👋"
     }
+    
+    @IBAction func trollMode(_ sender: UISwitch) {
+            trollMode.setOn(!trolling, animated: true)
+            trolling = !trolling
+            print(trolling)
+    }
+    
 }
