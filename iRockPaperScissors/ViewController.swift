@@ -45,23 +45,20 @@ class ViewController: UIViewController {
     
     @IBAction func pickerButtons(_ sender: UISegmentedControl) {
         playerPlaysThis = chosenByPlayer(pickerButton.selectedSegmentIndex) as (weapon: Weapon, emoji: String)
-        var playersWeapon: Weapon? = Weapon.rock
-        var compsWeapon: Weapon? = Weapon.scissors
+        let playersWeapon = playerPlaysThis?.weapon
+        var compsWeapon: Weapon?
         
         // Basic mode
         
         if trolling == false {
             compPlaysThat = chooseForComputer() as (weapon: Weapon, emoji: String)
-        
             compsWeapon = compPlaysThat?.weapon
-            playersWeapon = playerPlaysThis?.weapon
         }
             
         // Troll mode
         
         else {
             let randomlyFrustrate = Int(arc4random_uniform(10))
-            playersWeapon = playerPlaysThis?.weapon
             
             switch randomlyFrustrate {
                 
@@ -91,38 +88,29 @@ class ViewController: UIViewController {
         
         // Determining winners & display stuff
         
-        if compsWeapon == playersWeapon {
-            self.results.text = Msg.display(text: .tie)
-        } else if compsWeapon == Weapon.scissors && playersWeapon == Weapon.rock
-            || compsWeapon == Weapon.paper && playersWeapon == Weapon.scissors
-            || compsWeapon == Weapon.rock && playersWeapon == Weapon.paper {
-            self.results.text = Msg.display(text: .win)
-            wins += 1
-        } else {
-            if trolling == true {
-                results.text = Msg.display(text: .troll)
-            } else {
-                self.results.text = Msg.display(text: .lose)
-            }
-            losses += 1
-        }
+        self.results.text = determineWinners(player: playersWeapon!, comp: compsWeapon!)
         
         if playerPlaysThis != nil {
             // This displays the player's pick
             playmoji.text = playerPlaysThis!.emoji
-            print(playerPlaysThis!.emoji)
+            print("Player: " + playerPlaysThis!.emoji)
         } else {
             playmoji.text = "👋"
         }
         
         if compPlaysThat != nil {
             compoji.text = compPlaysThat!.emoji
-            print(compPlaysThat!.emoji)
+            print("CPU: " + compPlaysThat!.emoji)
         } else {
             compoji.text = "👋"
         }
         
         rounds += 1
+        if results.text == Msg.display(text: .win) {
+            wins += 1
+        } else if results.text == Msg.display(text: .lose) {
+            losses += 1
+        }
         
         currentRound.text = String(rounds)
         playerWins.text = String(wins)

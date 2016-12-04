@@ -127,7 +127,7 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="-2" height="1"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1z-Wt-Bfw">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1z-Wt-Bfw" customClass="CustomButton" customModule="iRockPaperScissors" customModuleProvider="target">
                                 <rect key="frame" x="142" y="617" width="90" height="30"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.74901960779999999" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
