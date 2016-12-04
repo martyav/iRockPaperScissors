@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         let font = UIFont.systemFont(ofSize: 30)
         pickerButton.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
         
-        // turn emojis sideways
+        // turn emojis sideways/reversed
         playmoji.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
         compoji.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
     }
@@ -65,8 +65,8 @@ class ViewController: UIViewController {
             
             switch randomlyFrustrate {
                 
-            // 60% of the time, make the player lose
-            case 5, 4, 3, 2, 1, 0:
+            // 70% of the time, make the player lose
+            case 6, 5, 4, 3, 2, 1, 0:
                 switch playersWeapon! as Weapon {
                 case Weapon.rock:
                     compPlaysThat = (weapon: Weapon.paper, emoji: Weapon.convertWeapon(toEmoji: Weapon.paper))
@@ -77,8 +77,8 @@ class ViewController: UIViewController {
                     compPlaysThat = (weapon: Weapon.rock, emoji: Weapon.convertWeapon(toEmoji: Weapon.rock))
                 }
                 
-            // 30% of the time, make the player tie
-            case 8, 7, 6:
+            // 20% of the time, make the player tie
+            case 8, 7:
                 compPlaysThat = playerPlaysThis! as (weapon: Weapon, emoji: String)
                 compsWeapon = compPlaysThat?.weapon
                 
@@ -99,7 +99,11 @@ class ViewController: UIViewController {
             self.results.text = Msg.display(text: .win)
             wins += 1
         } else {
-            self.results.text = Msg.display(text: .lose)
+            if trolling == true {
+                results.text = Msg.display(text: .troll)
+            } else {
+                self.results.text = Msg.display(text: .lose)
+            }
             losses += 1
         }
         
@@ -143,5 +147,4 @@ class ViewController: UIViewController {
             trolling = !trolling
             print(trolling)
     }
-    
 }
