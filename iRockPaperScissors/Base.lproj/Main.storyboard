@@ -69,50 +69,17 @@
                                     <action selector="pickerButtons:" destination="PjR-pq-qSN" eventType="valueChanged" id="AuC-fu-X7o"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Play!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDf-yl-lwb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iRPS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDf-yl-lwb">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <color key="backgroundColor" red="0.99215686274509807" green="0.74901960784313726" blue="0.17647058823529413" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="VaN-eb-2Z0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="36"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="-3" height="3"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RtD-xG-5Bh">
-                                <rect key="frame" x="16" y="435" width="90" height="90"/>
-                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="36"/>
-                                <color key="textColor" red="0.99215686270000003" green="0.74901960779999999" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.4558320642" green="0.33074936269999999" blue="0.076661132280000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="shadowOffset" width="-2" height="2"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gm2-xd-n62">
-                                <rect key="frame" x="269" y="435" width="90" height="90"/>
-                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="36"/>
-                                <color key="textColor" red="0.99215686270000003" green="0.74901960779999999" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.4558320642" green="0.33074936269999999" blue="0.076661132280000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="shadowOffset" width="-2" height="2"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2J-cB-KAR">
-                                <rect key="frame" x="142" y="159" width="90" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="Wds-cs-Cos"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="48"/>
-                                <color key="textColor" red="0.99215686270000003" green="0.74901960779999999" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.45583206415176392" green="0.33074936270713806" blue="0.076661132276058197" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="shadowOffset" width="-3" height="3"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4C9-Rm-ccd">
-                                <rect key="frame" x="16" y="146" width="343" height="21"/>
-                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="-2" height="1"/>
+                                <size key="shadowOffset" width="3" height="3"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FO2-Hs-fxe">
                                 <rect key="frame" x="0.0" y="521" width="375" height="90"/>
@@ -124,10 +91,57 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.4558320642" green="0.33074936269999999" blue="0.076661132280000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="shadowOffset" width="-3" height="3"/>
+                                <size key="shadowOffset" width="3" height="3"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RtD-xG-5Bh">
+                                <rect key="frame" x="16" y="435" width="90" height="90"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="36"/>
+                                <color key="textColor" red="0.99215686270000003" green="0.74901960779999999" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.4558320642" green="0.33074936269999999" blue="0.076661132280000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="2" height="2"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gm2-xd-n62">
+                                <rect key="frame" x="269" y="435" width="90" height="90"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="36"/>
+                                <color key="textColor" red="0.99215686270000003" green="0.74901960779999999" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.4558320642" green="0.33074936269999999" blue="0.076661132280000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="2" height="2"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2J-cB-KAR">
+                                <rect key="frame" x="142" y="159" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="Wds-cs-Cos"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="48"/>
+                                <color key="textColor" red="0.99215686270000003" green="0.74901960779999999" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.45583206415176392" green="0.33074936270713806" blue="0.076661132276058197" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="3" height="3"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4C9-Rm-ccd">
+                                <rect key="frame" x="16" y="146" width="343" height="21"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="-2" height="1"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1z-Wt-Bfw">
+                                <rect key="frame" x="142" y="617" width="90" height="30"/>
+                                <color key="backgroundColor" red="0.99215686270000003" green="0.74901960779999999" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="RESET">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.4558320642" green="0.33074936269999999" blue="0.076661132280000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="reset:" destination="PjR-pq-qSN" eventType="touchUpInside" id="mmL-5V-Hi5"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.99859416484832764" green="0.93302476406097412" blue="0.75633931159973145" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="l4Q-wR-PJY" firstAttribute="trailing" secondItem="mYp-7g-9ut" secondAttribute="trailing" id="1ov-WQ-bX9"/>
                             <constraint firstItem="l4Q-wR-PJY" firstAttribute="baseline" secondItem="UyY-FO-9ne" secondAttribute="baseline" id="2pp-XZ-BoG"/>
@@ -140,6 +154,7 @@
                             <constraint firstItem="4C9-Rm-ccd" firstAttribute="trailing" secondItem="l4Q-wR-PJY" secondAttribute="trailing" id="EeS-Ou-0zh"/>
                             <constraint firstItem="UyY-FO-9ne" firstAttribute="leading" secondItem="KfY-mP-NZc" secondAttribute="leadingMargin" id="HmI-FS-KxW"/>
                             <constraint firstItem="4C9-Rm-ccd" firstAttribute="leading" secondItem="RtD-xG-5Bh" secondAttribute="leading" id="HpW-Ob-pLR"/>
+                            <constraint firstItem="W1z-Wt-Bfw" firstAttribute="top" secondItem="FO2-Hs-fxe" secondAttribute="bottom" constant="6" id="IQX-r5-Bb6"/>
                             <constraint firstItem="gm2-xd-n62" firstAttribute="baseline" secondItem="RtD-xG-5Bh" secondAttribute="baseline" id="IrP-bP-ZOV"/>
                             <constraint firstItem="uDf-yl-lwb" firstAttribute="trailing" secondItem="Y4R-Kp-4kC" secondAttribute="trailing" id="MTb-0s-5mV"/>
                             <constraint firstItem="l4Q-wR-PJY" firstAttribute="top" secondItem="Y4R-Kp-4kC" secondAttribute="bottom" constant="40" id="PgH-qD-p0J"/>
@@ -151,8 +166,10 @@
                             <constraint firstItem="Dqy-HG-22b" firstAttribute="baseline" secondItem="mYp-7g-9ut" secondAttribute="baseline" id="TCj-if-EPl"/>
                             <constraint firstItem="l4Q-wR-PJY" firstAttribute="leading" secondItem="mYp-7g-9ut" secondAttribute="leading" id="TDg-jp-yDi"/>
                             <constraint firstItem="Dqy-HG-22b" firstAttribute="leading" secondItem="UyY-FO-9ne" secondAttribute="leading" id="VZw-1X-S1S"/>
+                            <constraint firstItem="7eI-s1-4f8" firstAttribute="top" secondItem="W1z-Wt-Bfw" secondAttribute="bottom" constant="20" id="VaI-zj-xbh"/>
                             <constraint firstItem="RtD-xG-5Bh" firstAttribute="top" secondItem="Dqy-HG-22b" secondAttribute="top" id="W7v-As-qrU"/>
                             <constraint firstItem="4C9-Rm-ccd" firstAttribute="centerX" secondItem="B2J-cB-KAR" secondAttribute="centerX" id="WdN-Tj-o8U"/>
+                            <constraint firstItem="W1z-Wt-Bfw" firstAttribute="leading" secondItem="KfY-mP-NZc" secondAttribute="leadingMargin" constant="126" id="Yko-rr-2WF"/>
                             <constraint firstItem="gm2-xd-n62" firstAttribute="leading" secondItem="mYp-7g-9ut" secondAttribute="leading" id="ZLs-E1-VWg"/>
                             <constraint firstItem="4C9-Rm-ccd" firstAttribute="top" secondItem="uDf-yl-lwb" secondAttribute="bottom" constant="28" id="ZOb-1y-6x3"/>
                             <constraint firstItem="mYp-7g-9ut" firstAttribute="top" secondItem="l4Q-wR-PJY" secondAttribute="bottom" constant="8" symbolic="YES" id="aHW-6y-akU"/>
@@ -160,6 +177,7 @@
                             <constraint firstItem="uDf-yl-lwb" firstAttribute="top" secondItem="njk-gq-en1" secondAttribute="bottom" constant="8" symbolic="YES" id="i4i-Px-NIq"/>
                             <constraint firstItem="FO2-Hs-fxe" firstAttribute="leading" secondItem="Y4R-Kp-4kC" secondAttribute="leading" id="im7-B5-jCr"/>
                             <constraint firstItem="uDf-yl-lwb" firstAttribute="leading" secondItem="Y4R-Kp-4kC" secondAttribute="leading" id="l3N-LE-ffE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="W1z-Wt-Bfw" secondAttribute="trailing" constant="127" id="lXb-Ri-9vE"/>
                             <constraint firstItem="RtD-xG-5Bh" firstAttribute="trailing" secondItem="Dqy-HG-22b" secondAttribute="trailing" id="sb3-3r-QfX"/>
                             <constraint firstItem="FO2-Hs-fxe" firstAttribute="trailing" secondItem="Y4R-Kp-4kC" secondAttribute="trailing" id="t6X-uV-Ci1"/>
                             <constraint firstItem="Y4R-Kp-4kC" firstAttribute="top" secondItem="KfY-mP-NZc" secondAttribute="top" constant="269" id="tLa-Hx-zvj"/>
