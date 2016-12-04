@@ -23,10 +23,10 @@ func chooseForComputer() -> (weapon: Weapon, emoji: String) {
     return (computersPick, computersPickEmoji)
 }
 
-func determineWinners(player: Weapon, comp: Weapon) -> String {
-    switch player {
+func determineWinners(player1: Weapon, player2: Weapon) -> String {
+    switch player1 {
     case Weapon.rock:
-        switch comp {
+        switch player2 {
         case Weapon.scissors:
             return Msg.display(text: .win)
         case Weapon.paper:
@@ -35,7 +35,7 @@ func determineWinners(player: Weapon, comp: Weapon) -> String {
             return Msg.display(text: .tie)
         }
     case Weapon.paper:
-        switch comp {
+        switch player2 {
             case Weapon.scissors:
             return Msg.display(text: .win)
         case Weapon.rock:
@@ -44,7 +44,7 @@ func determineWinners(player: Weapon, comp: Weapon) -> String {
             return Msg.display(text: .tie)
         }
     case Weapon.scissors:
-        switch comp {
+        switch player2 {
         case Weapon.paper:
             return Msg.display(text: .win)
         case Weapon.rock:

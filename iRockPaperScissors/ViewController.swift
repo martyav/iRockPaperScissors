@@ -46,13 +46,16 @@ class ViewController: UIViewController {
     @IBAction func pickerButtons(_ sender: UISegmentedControl) {
         playerPlaysThis = chosenByPlayer(pickerButton.selectedSegmentIndex) as (weapon: Weapon, emoji: String)
         let playersWeapon = playerPlaysThis?.weapon
+        let playersEmoji = playerPlaysThis?.emoji
         var compsWeapon: Weapon?
+        var compsEmoji: String?
         
         // Basic mode
         
         if trolling == false {
             compPlaysThat = chooseForComputer() as (weapon: Weapon, emoji: String)
             compsWeapon = compPlaysThat?.weapon
+            compsEmoji = compPlaysThat?.emoji
         }
             
         // Troll mode
@@ -68,39 +71,43 @@ class ViewController: UIViewController {
                 case Weapon.rock:
                     compPlaysThat = (weapon: Weapon.paper, emoji: Weapon.convertWeapon(toEmoji: Weapon.paper))
                     compsWeapon = compPlaysThat?.weapon
+                    compsEmoji = compPlaysThat?.emoji
                 case Weapon.paper:
                     compPlaysThat = (weapon: Weapon.scissors, emoji: Weapon.convertWeapon(toEmoji: Weapon.scissors))
+                    compsWeapon = compPlaysThat?.weapon
+                    compsEmoji = compPlaysThat?.emoji
                 case Weapon.scissors:
                     compPlaysThat = (weapon: Weapon.rock, emoji: Weapon.convertWeapon(toEmoji: Weapon.rock))
+                    compsWeapon = compPlaysThat?.weapon
+                    compsEmoji = compPlaysThat?.emoji
                 }
                 
             // 20% of the time, make the player tie
             case 8, 7:
                 compPlaysThat = playerPlaysThis! as (weapon: Weapon, emoji: String)
                 compsWeapon = compPlaysThat?.weapon
+                compsEmoji = compPlaysThat?.emoji
                 
             // 10% of the time, or whenever something weird happens, give the player a chance of winning. Actual chance is 30% of 10%, or 3%
             default:
                 compPlaysThat = chooseForComputer() as (weapon: Weapon, emoji: String)
                 compsWeapon = compPlaysThat?.weapon
+                compsEmoji = compPlaysThat?.emoji
             }
         }
         
-        // Determining winners & display stuff
-        
-        self.results.text = determineWinners(player: playersWeapon!, comp: compsWeapon!)
+        self.results.text = determineWinners(player1: playersWeapon!, player2: compsWeapon!)
         
         if playerPlaysThis != nil {
-            // This displays the player's pick
             playmoji.text = playerPlaysThis!.emoji
-            print("Player: " + playerPlaysThis!.emoji)
+            print("Player: " + playersEmoji!)
         } else {
             playmoji.text = "👋"
         }
         
         if compPlaysThat != nil {
             compoji.text = compPlaysThat!.emoji
-            print("CPU: " + compPlaysThat!.emoji)
+            print("CPU: " + compsEmoji!)
         } else {
             compoji.text = "👋"
         }
