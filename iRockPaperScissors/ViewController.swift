@@ -88,5 +88,7 @@ class ViewController: UIViewController {
         playerWins.text = String(0)
         playerLosses.text = String(0)
         results.text = ""
+        playmoji.text = "👋"
+        compoji.text = "👋"
     }
 }
