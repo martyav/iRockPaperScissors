@@ -11,10 +11,13 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var pickerButton: UISegmentedControl!
-    @IBOutlet weak var darkMode: UISwitch!
     @IBOutlet weak var playmoji: UILabel!
     @IBOutlet weak var compoji: UILabel!
     @IBOutlet weak var results: UILabel!
+    
+    @IBOutlet weak var currentRound: UILabel!
+    @IBOutlet weak var playerWins: UILabel!
+    @IBOutlet weak var playerLosses: UILabel!
     
     var rounds = 0
     var wins = 0
@@ -25,36 +28,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if playerPlaysThis != nil {
-        // This displays the player's pick
-            playmoji.text = playerPlaysThis?.emoji
-            print(playerPlaysThis?.emoji)
-        // This turns it sideways
-            playmoji.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
-        } else {
-            playmoji.text = ""
-        }
-        
-        compoji.text = compPlaysThat?.emoji
-        print(compPlaysThat?.emoji)
+        // increase font size on picker
+        let font = UIFont.systemFont(ofSize: 30)
+        pickerButton.setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+        // turn emojis sideways
+        playmoji.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
         compoji.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
     }
     
     // MARK: - Actions
-    
-    @IBAction func darkMode(_ sender: UISwitch) {
-        // This is defined in reverse because it makes more sense for dark mode to be implemented by shutting the switch off
-        if darkMode.isOn != true {
-            // We also need to set the background for the section & the switch -- as-is we have ugly corners
-            view.backgroundColor = .black
-            results.textColor = .white
-            view.tintColor = .white
-        } else {
-            view.tintColor = .black
-            results.textColor = .black
-            view.backgroundColor = .white
-        }
-    }
     
     @IBAction func pickerButtons(_ sender: UISegmentedControl) {
         playerPlaysThis = chosenByPlayer(pickerButton.selectedSegmentIndex) as (weapon: Weapon, emoji: String)
@@ -67,17 +49,36 @@ class ViewController: UIViewController {
         let playersWeapon = playerPlaysThis?.weapon
         
         if compsWeapon == playersWeapon {
-            results.text = Msg.display(text: .tie)
+            self.results.text = Msg.display(text: .tie)
         } else if compsWeapon == Weapon.scissors && playersWeapon == Weapon.rock
             || compsWeapon == Weapon.paper && playersWeapon == Weapon.scissors
             || compsWeapon == Weapon.rock && playersWeapon == Weapon.paper {
-            results.text = Msg.display(text: .win)
+            self.results.text = Msg.display(text: .win)
             wins += 1
         } else {
-            results.text = Msg.display(text: .lose)
+            self.results.text = Msg.display(text: .lose)
             losses += 1
         }
         
+        if playerPlaysThis != nil {
+            // This displays the player's pick
+            playmoji.text = playerPlaysThis!.emoji
+            print(playerPlaysThis!.emoji)
+            } else {
+            playmoji.text = "👋"
+        }
+        
+        if compPlaysThat != nil {
+            compoji.text = compPlaysThat!.emoji
+            print(compPlaysThat!.emoji)
+        } else {
+            compoji.text = "👋"
+        }
+        
         rounds += 1
+        
+        currentRound.text = String(rounds)
+        playerWins.text = String(wins)
+        playerLosses.text = String(losses)
     }
 }
