@@ -8,6 +8,8 @@
 
 import Foundation
 
+// to-do: make weapon a class, keep the enum in some form. make the properties of the class the gesture and the emoji
+
 enum Weapon: Int {
     case rock
     case paper

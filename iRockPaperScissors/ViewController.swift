@@ -96,7 +96,7 @@ class ViewController: UIViewController {
             }
         }
         
-        self.results.text = determineWinners(player1: playersWeapon!, player2: compsWeapon!, troll: trolling)
+        results.text = determineWinners(player1: playersWeapon!, player2: compsWeapon!, isTrolling: trolling)
         
         if playerPlaysThis != nil {
             playmoji.text = playerPlaysThis!.emoji
